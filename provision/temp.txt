@@ -1,0 +1,12 @@
+chef-server-ctl install opscode-reporting
+chef-server-ctl reconfigure
+opscode-reporting-ctl reconfigure --accept-license
+
+
+# configure hosts file for our internal network defined by Vagrantfile
+cat >> /etc/hosts <<EOL
+# vagrant environment nodes
+10.0.10.10  chef-server
+10.0.10.20  web1
+10.0.10.21  web2
+EOL
